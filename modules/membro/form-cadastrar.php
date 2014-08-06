@@ -20,9 +20,9 @@ if( isset( $_GET['msg'] ) && $_GET['msg'] == 'null' ){
 
 <?php
 
-if( isset( $_GET['mb'] ) ){
+if( isset( $_GET['mbr'] ) ){
 	
-	$id_membro = $_GET['mb'];
+	$id_membro = $_GET['mbr'];
 	
 	$sql = "SELECT
                     id_membro,

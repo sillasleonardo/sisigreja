@@ -52,7 +52,7 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 
 	?>
 	
-	<div id="msg-ok"> Membro ativada com sucesso. </div>
+	<div id="msg-ok"> Membro ativado com sucesso. </div>
 	
 <?php
 	
@@ -61,16 +61,17 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 ?>
 
 <?php $con  	= new Connect();?>
-<?php $sql  	= "SELECT id_noticia, 
-						DATE_FORMAT(dt_noticia, '%d/%m/%Y %H:%i') as dt_noticia,
-						DATE_FORMAT(dt_noticia, '%d') as dia,
-			        	DATE_FORMAT(dt_noticia, '%m') as mes,
-			        	DATE_FORMAT(dt_noticia, '%Y') as ano,
-						titulo,
-						IF( ativo = 1, 'Publicada', 'Não publicada') as status,
-						ativo
-					FROM tb_noticia
-					ORDER BY  ano DESC, mes DESC, dia DESC;"; ?>
+<?php $sql  	= "SELECT id_membro,
+                        nome,
+                        DATE_FORMAT(dt_nascimento, '%d/%m/%Y') as dt_nascimento,
+                        DATE_FORMAT(dt_batismo, '%d/%m/%Y') as dt_batismo,
+                        telefone,
+                        celular,
+                        endereco,
+                        bairro,
+			IF( ativo = 1, 'Ativo', 'Não Ativo') as status
+
+		FROM tb_membro;"; ?>
 <?php $rs   	= $con->execQuery( $sql ); ?>
 <?php $numRows 	= $con->numRows( $rs ); ?>
 
@@ -82,15 +83,30 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 				Código
 			</th>
 			<th width="600px">
-				Título
+				Nome
 			</th>
 			<th width="170px">
-				Data
+				Data de Nascimento
 			</th>
 			<th width="150px">
-				Status
+				Data de Batismo
 			</th>
 			<th width="100px">
+				Telefone
+			</th>
+                        <th width="100px">
+				Celular
+			</th>
+                        <th width="100px">
+				Endereco
+			</th>
+                        <th width="100px">
+				Bairro
+			</th>
+                        <th width="100px">
+				status
+			</th>
+                        <th width="100px">
 				Ações
 			</th>
 		</tr>
@@ -100,24 +116,24 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 		<?php while( $dado = $con->fetchAssoc( $rs ) ):?>
 				<tr>
 					<td style="text-align: center;">
-						<?php echo str_pad( $dado['id_noticia'], 3, 0, STR_PAD_LEFT ); ?>
+						<?php echo str_pad( $dado['id_membro'], 3, 0, STR_PAD_LEFT ); ?>
 					</td>
 					<td>
-						<?php echo $dado['titulo']; ?>
+						<?php echo $dado['nome']; ?>
 					</td>
 					<td>
-						<?php echo $dado['dt_noticia']; ?>
+						<?php echo $dado['dt_nascimento']; ?>
 					</td>
 					<td style="padding: 0 20px;">
 						<span style="color: <?php echo $dado['ativo'] == 1? 'green': 'red'; ?>;"> <?php echo $dado['status']; ?> </span>
 					</td>
 					<td style="text-align: center;">
-						<a href="index.php?md=noticia&pg=form-cadastrar&ntc=<?php echo $dado['id_noticia'] ?>"> <img src="../images/EDIT_16.png" title="Editar" alt="Editar" /> </a> &nbsp;&nbsp;&nbsp;
+						<a href="index.php?mb=membro&pg=form-cadastrar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/EDIT_16.png" title="Editar" alt="Editar" /> </a> &nbsp;&nbsp;&nbsp;
 						
 						<?php if( $dado['ativo'] == 1 ): ?>
-							<a href="index.php?md=noticia&pg=trata-form-cadastrar&acao=inativar&ntc=<?php echo $dado['id_noticia'] ?>"> <img src="../images/close_filtro.png" width="15px" height="15px" title="Inativar" alt="Inativar" /> </a>
+							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=inativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/close_filtro.png" width="15px" height="15px" title="Inativar" alt="Inativar" /> </a>
 						<?php else:?>
-							<a href="index.php?md=noticia&pg=trata-form-cadastrar&acao=ativar&ntc=<?php echo $dado['id_noticia'] ?>"> <img src="../images/ativo.png" width="15px" height="15px"  title="Ativar" alt="Ativar" /> </a>
+							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=ativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/ativo.png" width="15px" height="15px"  title="Ativar" alt="Ativar" /> </a>
 						<?php endif; ?>
 					</td>
 				</tr>
