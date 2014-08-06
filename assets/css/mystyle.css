@@ -1,0 +1,40 @@
+@CHARSET "ISO-8859-1";
+
+body{ background: #fff; margin: 0; padding: 10px 20px 0 20px; color: #000; }
+
+
+
+/* topo */
+
+
+#topo{ width: 100%; height: auto; }
+#topo #logo{ width:auto; height: 105px; order: 0px; float: left; vertical-align: middle;  }
+#topo #logo img{ border: 0px }
+
+#topo #ola-usuario{ width: 250px; height: 100px; padding: 0 20px; float: left; color: #0066CC; text-align: center; }
+#topo #friz{ color: #b51919; }
+#topo #sair{ width:70px; height: 50px; float: right; font-size: 17px; vertical-align: middle; }
+#topo #sair a, #topo #sair img{ border: 0px; }
+
+/* body */
+#body{ width: 100%; height: auto; font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif; color: #000; margin: 10px 0 40px 0; padding: 10px; }
+#body #msg-ok{ width: auto; background: #3CB371; color: #fff; padding-left: 40px; font-size: 14px; margin: 10px 0 25px 0; }
+#body #msg-error{ width: 765px; background: #FF3030; color: #fff; padding-left: 40px; font-size: 14px; margin: 10px 0 25px 0; }
+#body .campos-obrigatorios{ color: red; font-weight: bold; }
+#body table .label{ text-align: right; }
+#div_foto_miniatura { width: 120px; height: auto; border: 1px solid #000; }
+#titulo_div_foto_miniatura { width: 122px; background: #ccc; text-align: left; }
+#div_foto_noticia { width: 200px; height: auto; border: 1px solid #000; }
+#titulo_div_foto_noticia { width: 202px; background: #ccc; text-align: left; }
+
+/* footer */
+
+#footer{ width: 100%; height: 60px; background-color: #fece07; font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif; font-size: 12px; color: #000; margin: 0 -20px 0 -20px; padding: 10px 20px 10px 20px; }
+#footer .footer-copy{ width: 300px; height: 60px; border: 0px; text-align: center; padding-top: 5px; margin: 0 auto; }
+#footer .footer-copy a, #footer .footer-copy a:hover{ color: #0066CC; }
+#footer .footer-copy img{ border: 0px; }
+
+#myfooter{ width: 100%; height: 60px; background-color: #ffffff; font-family: "Lucida Sans Unicode", "Bitstream Vera Sans", "Trebuchet Unicode MS", "Lucida Grande", Verdana, Helvetica, sans-serif; font-size: 12px; color: #000; margin: 0 -20px 0 -5px; padding: 10px 10px 10px 10px; }
+#myfooter .footer-copy{ width: 300px; height: 60px; border: 0px; text-align: center; padding-top: 5px; margin: 0 auto; }
+#myfooter .footer-copy a, #footer .footer-copy a:hover{ color: #0066CC; }
+#myfooter .footer-copy img{ border: 1px; }
