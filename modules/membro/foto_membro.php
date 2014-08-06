@@ -3,7 +3,7 @@
 	$host  = "localhost";
 	$user  = "root";
 	$pass = "";
-	$db    = "regularizouehseu";
+	$db    = "dbigreja";
 	
 	$con   = mysql_connect( $host, $user, $pass) or die('Não foi possível conectar: '.mysql_error());
 	$sel   = mysql_select_db( $db, $con );
@@ -13,17 +13,17 @@
 	mysql_query('SET character_set_results=utf8');
 // FIM CONEXAO
 
-if( isset( $_GET['id_noticia'] ) ){
+if( isset( $_GET['id_membro'] ) ){
 	
-	$id_noticia = $_GET['id_noticia'];
+	$id_membro = $_GET['id_membro'];
 	
 	// Executa a query, trazendo a foto do banco
-	$query = "SELECT id_noticia, tipo_foto_noticia, titulo, foto_noticia FROM tb_noticia WHERE ativo = 1 AND id_noticia =". $id_noticia;
+	$query = "SELECT id_membro, nome, foto FROM tb_noticia WHERE ativo = 1 AND id_membro =". $id_membro;
 	$resultado = mysql_query($query);
 	
-	$tipo = mysql_result($resultado, 0, "tipo_foto_noticia"); 
-	$foto = mysql_result($resultado, 0, "foto_noticia"); 
-	header("Content-type: $tipo"); 
+	//$tipo = mysql_result($resultado, 0, "tipo_foto_membro"); 
+	$foto = mysql_result($resultado, 0, "foto"); 
+	//header("Content-type: $tipo"); 
 	print $foto;
 	
 }
