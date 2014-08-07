@@ -96,7 +96,7 @@ if( isset( $_GET['mbr'] ) ){
 <br /><br />
 
 <div class="container" style="border: solid 1px">
-<h1> <?php echo $numRows <= 0? "Cadastrar Membro": "Editar Membro"; ?> </h1>
+<h1> <?php echo $numRows <= 0 ? "Cadastrar Membro": "Editar Membro"; ?> </h1>
 <form class="form-signin" action="<?php echo $form->action; ?>" method="<?php echo $form->method; ?>" name="<?php echo $form->name; ?>" id="<?php echo $form->name; ?>" enctype="<?php echo $form->enctype ?>" style="width:auto;">
 
 	<?php echo $form->formHidden( 'id_membro', $id_membro ) ?>

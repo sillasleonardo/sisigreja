@@ -69,8 +69,8 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
                         celular,
                         endereco,
                         bairro,
-			IF( ativo = 1, 'Ativo', 'Não Ativo') as status
-
+			IF( ativo = 1, 'Ativo', 'Não Ativo') as status,
+                        ativo
 		FROM tb_membro;"; ?>
 <?php $rs   	= $con->execQuery( $sql ); ?>
 <?php $numRows 	= $con->numRows( $rs ); ?>
@@ -85,26 +85,29 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 			<th width="600px">
 				Nome
 			</th>
-			<th width="170px">
+			<th width="270px">
 				Data de Nascimento
 			</th>
-			<th width="150px">
+			<th width="250px">
 				Data de Batismo
 			</th>
-			<th width="100px">
+			<th width="250px">
 				Telefone
 			</th>
-                        <th width="100px">
+                        <th width="250px">
 				Celular
 			</th>
-                        <th width="100px">
+                        <th width="250px">
 				Endereco
 			</th>
                         <th width="100px">
 				Bairro
 			</th>
-                        <th width="100px">
+                        <th width="80px">
 				status
+			</th>
+                        <th width="100px">
+				Ativo
 			</th>
                         <th width="100px">
 				Ações
@@ -124,19 +127,36 @@ elseif( isset( $_GET['msg'] ) && $_GET['msg'] == 'ok-ativ' ){
 					<td>
 						<?php echo $dado['dt_nascimento']; ?>
 					</td>
+                                        <td>
+						<?php echo $dado['dt_batismo']; ?>
+					</td>
+                                        <td>
+						<?php echo $dado['telefone']; ?>
+					</td>
+                                        <td>
+						<?php echo $dado['celular']; ?>
+					</td>
+                                        <td>
+						<?php echo $dado['endereco']; ?>
+					</td>
+                                        <td>
+						<?php echo $dado['bairro']; ?>
+					</td>
 					<td style="padding: 0 20px;">
 						<span style="color: <?php echo $dado['ativo'] == 1? 'green': 'red'; ?>;"> <?php echo $dado['status']; ?> </span>
 					</td>
-					<td style="text-align: center;">
-						<a href="index.php?mb=membro&pg=form-cadastrar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/EDIT_16.png" title="Editar" alt="Editar" /> </a> &nbsp;&nbsp;&nbsp;
-						
+					<td style="text-align: center;">						
+					
 						<?php if( $dado['ativo'] == 1 ): ?>
-							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=inativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/close_filtro.png" width="15px" height="15px" title="Inativar" alt="Inativar" /> </a>
+							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=inativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../../assets/img/not_active.png" width="15px" height="15px" title="Inativar" alt="Inativar" /> </a>
 						<?php else:?>
-							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=ativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../images/ativo.png" width="15px" height="15px"  title="Ativar" alt="Ativar" /> </a>
+							<a href="index.php?mb=membro&pg=trata-form-cadastrar&acao=ativar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../../assets/img/active.png" width="15px" height="15px"  title="Ativar" alt="Ativar" /> </a>
 						<?php endif; ?>
 					</td>
-				</tr>
+                                        <td style="text-align: center;">
+                                            <a href="index.php?mb=membro&pg=form-cadastrar&mbr=<?php echo $dado['id_membro'] ?>"> <img src="../../assets/img/edit_16.jpg" title="Editar" alt="Editar" /> </a> &nbsp;&nbsp;&nbsp;
+                                        </td>
+                                </tr>
 		<?php endwhile; ?>
 	</table>
 <?php else:?>
