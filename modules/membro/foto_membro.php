@@ -18,7 +18,7 @@ if( isset( $_GET['id_membro'] ) ){
 	$id_membro = $_GET['id_membro'];
 	
 	// Executa a query, trazendo a foto do banco
-	$query = "SELECT id_membro, nome, foto FROM tb_noticia WHERE ativo = 1 AND id_membro =". $id_membro;
+	$query = "SELECT id_membro, nome, foto FROM tb_membro WHERE ativo = 1 AND id_membro =". $id_membro;
 	$resultado = mysql_query($query);
 	
 	//$tipo = mysql_result($resultado, 0, "tipo_foto_membro"); 

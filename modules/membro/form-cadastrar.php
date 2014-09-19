@@ -101,24 +101,28 @@ if( isset( $_GET['mbr'] ) ){
 
 	<?php echo $form->formHidden( 'id_membro', $id_membro ) ?>
 
-	<table width="635" border="1">
+	<table width="900" border="1">
             <tr>
-              <td width="99">Membro:</td>
-              <td width="185"><label>
-                <?php echo $form->formText( 'nome', 'input-block-level', 'Nome' ) ?>
-              </label></td>
-              <td width="136">Data de Nascimento: </td>
-              <td width="187"><label>
+              <td>Membro:</td>
+              <td>
+                  <label>
+                    <?php echo $form->formText( 'nome', 'input-block-level', 'Nome' ) ?>
+                  </label>
+              </td>
+              <td width="50"></td>
+              <td>Data de Nascimento: </td>
+              <td width="320"><label>
                 <?php echo $form->formText( 'dt_nascimento', 'input-block-level', 'Data Nascimento' ) ?>
               </label></td>
             </tr>
             <tr>
-              <td height="24">Foto:</td>
+              <td>Foto:</td>
               <td>
                 <label for="foto"></label>
                   <input name="foto" type="file" id="foto" size="15" />
               </td>
-                  <td height="24">Estado Civil:</td>
+              <td width="50"></td>
+                  <td>Estado Civil:</td>
               <td>
                 <label for="foto"></label>
                   <?php echo $form->formText( 'estado_civil', 'input-block-level', 'Estado Civil' ) ?>
@@ -129,6 +133,7 @@ if( isset( $_GET['mbr'] ) ){
               <td><label>
                 <?php echo $form->formText( 'rg', 'input-block-level', 'RG' ) ?>
               </label></td>
+              <td width="50"></td>
               <td>CPF:</td>
               <td><label>
                 <?php echo $form->formText( 'cpf', 'input-block-level', 'CPF' ) ?>
@@ -143,16 +148,18 @@ if( isset( $_GET['mbr'] ) ){
                   <option value="f">Feminino</option>
                 </select>
               </label></td>
+              <td width="50"></td>
               <td>Data de Batismo: </td>
               <td><label>
                 <?php echo $form->formText( 'dt_batismo', 'input-block-level', 'Data Batismo' ) ?>
               </label></td>
             </tr>
             <tr>
-              <td>Endere&ccedil;o:</td>
+              <td>Endereco:</td>
               <td><label>
                 <?php echo $form->formText( 'endereco', 'input-block-level', 'Endereço' ) ?>
               </label></td>
+              <td width="50"></td>
               <td>E-Mail:</td>
               <td><label>
                 <?php echo $form->formText( 'email', 'input-block-level', 'E-Mail' ) ?>
@@ -160,56 +167,63 @@ if( isset( $_GET['mbr'] ) ){
             </tr>
             <tr>
               <td>Cargo:</td>
-              <td><label>
-                <?php echo $form->formText( 'cargo', 'input-block-level', 'Cargo' ) ?>
+              <td><label for="cargo">
+                <select name="cargo" id="cargo">
+                  <option value="cargo">Cargo</option>
+                </select>
               </label></td>
+              <td width="50"></td>
+              <td>Conjunto:</td>
+              <td><label for="conjunto">
+                <select name="conjunto" id="conjunto">
+                  <option value="conjunto">Conjunto</option>
+                </select>
+              </label></td>
+           </tr>
+           <tr>
               <td>Telefone:</td>
-              <td><label for="telefone">
-                <select name="telefone" id="telefone">
-                  <option value="telefone">telefone</option>
-                </select>
+              <td><label>
+                <?php echo $form->formText( 'telefone', 'input-block-level', 'Telefone' ) ?>
               </label></td>
-            </tr>
-            <tr>
+              <td width="50"></td>
               <td>Conjuge:</td>
-              <td><label for="conjuge">
-                <select name="conjuge" id="conjuge">
-                  <option value="Conjuge">conjuge</option>
-                </select>
+              <td><label>
+                <?php echo $form->formText( 'Conjuge', 'input-block-level', 'Conjuge' ) ?>
               </label></td>
+           </tr>
+           <tr>
               <td>Filho:</td>
               <td><label for="filho">
                 <select name="filho" id="filho">
                   <option value="filho">Filho</option>
                 </select>
               </label></td>
-            </tr>
-            <tr>
-              <td>Filia&ccedil;&atilde;o:</td>
-              <td><label for="filiacao">
-                <select name="filiacao" id="filiacao">
-                  <option value="filiacao">Filiacao</option>
-                </select>
-              </label></td>
-              <td>Pa&iacute;s:</td>
-              <td><label for="pais">
-                <select name="pais" id="pais">
-                  <option value="pais">Pais</option>
-                </select>
+              <td width="50"></td>
+              <td>Pai:</td>
+              <td><label>
+                <?php echo $form->formText( 'Pai', 'input-block-level', 'Pai' ) ?>
               </label></td>
             </tr>
             <tr>
-              <td height="29">Estado:</td>
-              <td><label for="estado">
-                <select name="estado" id="estado">
-                  <option value="estado">Estado</option>
-                </select>
+              <td>Mae:</td>
+              <td><label>
+                <?php echo $form->formText( 'Mae', 'input-block-level', 'Mae' ) ?>
               </label></td>
-              <td>Cidade:</td>
-              <td><label for="cidade">
-                <select name="cidade" id="cidade">
-                  <option value="cidade">Cidade</option>
-                </select>
+              <td width="50"></td>
+              <td>UF:</td>
+              <td><label>
+                <?php echo $form->formText( 'UF', 'input-block-level', 'UF' ) ?>
+              </label></td>
+            </tr>
+            <tr>
+              <td>Municipio:</td>
+              <td><label>
+                <?php echo $form->formText( 'Municipio', 'input-block-level', 'Municipio' ) ?>
+              </label></td>
+              <td width="50"></td>
+              <td>Bairro:</td>
+              <td><label>
+                <?php echo $form->formText( 'Bairro', 'input-block-level', 'Bairro' ) ?>
               </label></td>
             </tr>
             <tr>
@@ -239,7 +253,7 @@ $(document).ready(function(){
 	    dateFormat: 'dd/mm/yy',
 	    dayNamesMin: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sab'],
 	    monthNames: ['Janeiro', 'Fevereiro', 'Mar&ccedil;o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro' ],
-	    changeYear: true,
+	    changeYear: true
 	});
 
 	$("#form").submit( function(){

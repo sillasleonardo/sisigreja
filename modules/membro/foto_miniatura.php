@@ -13,12 +13,12 @@
 	mysql_query('SET character_set_results=utf8');
 // FIM CONEXAO
 
-if( !empty( $_GET['id_noticia'] ) ){
+if( !empty( $_GET['id_membro'] ) ){
 	
-	$id_noticia = $_GET['id_noticia'];
+	$id_membro = $_GET['id_membro'];
 	
 	// Executa a query, trazendo a foto do banco
-	$query = "SELECT id_noticia, tipo_foto_miniatura, titulo, foto_miniatura FROM tb_noticia WHERE ativo = 1 AND id_noticia =". $id_noticia;
+	$query = "SELECT id_membro, tipo_foto_miniatura, nome, foto_miniatura FROM tb_membro WHERE ativo = 1 AND id_membro =". $id_membro;
 	$resultado = mysql_query($query);
 	
 	$tipo = mysql_result($resultado, 0, "tipo_foto_miniatura"); 
