@@ -101,7 +101,7 @@ if( isset( $_GET['mbr'] ) ){
 
 	<?php echo $form->formHidden( 'id_membro', $id_membro ) ?>
 
-	<table width="900" border="1">
+	<table width="900" border="0">
             <tr>
               <td>Membro:</td>
               <td>
@@ -227,7 +227,7 @@ if( isset( $_GET['mbr'] ) ){
               </label></td>
             </tr>
             <tr>
-                <td colspan="4" align="center">
+                <td colspan="5" align="center">
                     <?php echo $form->formReset( null, 'Limpar','btn btn-large btn-primary' ) ?>
                     <?php echo $form->formSubmit( $numRows <= 0? 'btn-enviar' : 'btn-editar', 'Enviar','btn btn-large btn-primary' ) ?>
                 </td>

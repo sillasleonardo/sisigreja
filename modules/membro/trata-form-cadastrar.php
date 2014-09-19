@@ -6,7 +6,7 @@ if( isset( $_POST['btn-enviar'] ) ){
     
         $id_membro      	= $_POST['id_membro'];
 	$id_cargo       	= $_POST['id_cargo'];
-	$id_conjuto     	= $_POST['id_conjunto'];
+	$id_conjunto     	= $_POST['id_conjunto'];
 	$nome           	= $_POST['nome'];
 	$dt_nascimento      	= explode( '/', $_POST['dt_nascimento'] );
 	$estado_civil   	= $_POST['estado_civil'];
@@ -81,7 +81,7 @@ if( isset( $_POST['btn-enviar'] ) ){
                                       VALUES (
                                           null,
                                           '". $id_cargo ."',
-                                          '". $id_conjuto ."',
+                                          '". $id_conjunto ."',
                                           '". $nome ."',
                                           '". $dt_nascimento . "',
                                           '". $estado_civil ."',
@@ -123,7 +123,7 @@ elseif( isset( $_POST['btn-editar'] ) ){
 
 	$id_membro      	= $_POST['id_membro'];
 	$id_cargo       	= $_POST['id_cargo'];
-	$id_conjuto     	= $_POST['id_conjunto'];
+	$id_conjunto     	= $_POST['id_conjunto'];
 	$nome           	= $_POST['nome'];
 	$dt_nascimento      	= explode( '/', $_POST['dt_nascimento'] );
 	$estado_civil   	= $_POST['estado_civil'];
@@ -311,9 +311,9 @@ elseif( isset( $_GET['acao'] ) && $_GET['acao'] == 'inativar' ){
 	
 	$con  = new Connect();
 	
-	$id_noticia = $_GET['ntc'];
+	$id_membro = $_GET['mbr'];
 	
-	$sql = "UPDATE tb_noticia SET ativo = 0 WHERE id_noticia = ". $id_noticia .";";
+	$sql = "UPDATE tb_membro SET ativo = 0 WHERE id_membro = ". $id_membro .";";
 	
 	$con->execQuery( $sql );
 	
@@ -324,9 +324,9 @@ elseif( isset( $_GET['acao'] ) && $_GET['acao'] == 'ativar' ){
 	
 	$con  = new Connect();
 	
-	$id_noticia = $_GET['ntc'];
+	$id_membro = $_GET['mbr'];
 	
-	$sql = "UPDATE tb_noticia SET ativo = 1 WHERE id_noticia = ". $id_noticia .";";
+	$sql = "UPDATE tb_membro SET ativo = 1 WHERE id_membro = ". $id_membro .";";
 	
 	$con->execQuery( $sql );
 	
